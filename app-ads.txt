@@ -1,0 +1,3 @@
+# app-ads.txt for Bogdan Barbu (Corgi Blast). Authorized sellers of this developer's ad inventory.
+# Must stay at the root of the domain listed as the App Store Marketing URL (https://acheyy.github.io/).
+google.com, pub-4063000106508250, DIRECT, f08c47fec0942fa0
