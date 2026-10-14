@@ -1,0 +1,234 @@
+/* Shiba Defense site: the game's woodblock palette (docs/ART-BIBLE.md), no web fonts, no external requests.
+   Contrast (WCAG): sumi on shiro 15.7:1, ai links on shiro 9.4:1, shu-shade headings on shiro 7.3:1;
+   dark: shiro on #16131f 16:1, mizu links 9.4:1, kincha headings 8.5:1. Shu (#D8301F) is decoration only. */
+:root {
+  --sumi: #14171a;
+  --shiro: #f7efdd;
+  --washi: #f4d6a6;
+  --washi-shade: #d5aa64;
+  --shu: #d8301f;
+  --shu-shade: #8a301b;
+  --ai: #22405e;
+  --kincha: #e9a23b;
+  --mizu: #8cc3cf;
+  --night: #16131f;
+
+  --bg: var(--shiro);
+  --panel: var(--washi);
+  --text: var(--sumi);
+  --heading: var(--shu-shade);
+  --link: var(--ai);
+  --rule: var(--sumi);
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: var(--night);
+    --panel: #221d2e;
+    --text: var(--shiro);
+    --heading: var(--kincha);
+    --link: var(--mizu);
+    --rule: var(--washi-shade);
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 1.0625rem/1.6 ui-rounded, 'SF Pro Rounded', 'M PLUS Rounded 1c', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+
+.skip {
+  position: absolute;
+  left: -999px;
+  top: 0.5rem;
+  background: var(--panel);
+  color: var(--text);
+  padding: 0.5rem 1rem;
+  border: 3px solid var(--rule);
+  z-index: 1;
+}
+
+.skip:focus {
+  left: 0.5rem;
+}
+
+header.site,
+main,
+footer.site {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+header.site {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding-top: 1.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 4px solid var(--rule);
+}
+
+header.site .mark {
+  width: 2.75rem;
+  height: 2.75rem;
+  flex: none;
+}
+
+header.site a.home {
+  font-weight: 800;
+  font-size: 1.35rem;
+  color: var(--text);
+  text-decoration: none;
+  letter-spacing: 0.01em;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+  margin: 0 0 0 auto;
+  padding: 0;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--heading);
+  line-height: 1.25;
+  font-weight: 800;
+}
+
+h1 {
+  font-size: clamp(1.9rem, 6vw, 2.6rem);
+  margin: 1.5rem 0 0.5rem;
+}
+
+h2 {
+  font-size: 1.35rem;
+  margin: 2rem 0 0.5rem;
+  padding-bottom: 0.25rem;
+  border-bottom: 2px solid var(--shu);
+}
+
+h3 {
+  font-size: 1.1rem;
+  margin: 1.25rem 0 0.25rem;
+}
+
+a {
+  color: var(--link);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+a:focus-visible,
+summary:focus-visible {
+  outline: 3px solid var(--shu);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.tagline {
+  font-size: 1.2rem;
+  margin: 0 0 1rem;
+}
+
+/* A panel cut like a woodblock: flat colour, thick carved border, one flat shadow to the lower right. */
+.panel {
+  background: var(--panel);
+  border: 3px solid var(--rule);
+  border-radius: 14px;
+  box-shadow: 6px 6px 0 var(--rule);
+  padding: 1rem 1.25rem;
+  margin: 1.25rem 0;
+}
+
+.panel > :first-child {
+  margin-top: 0;
+}
+
+.panel > :last-child {
+  margin-bottom: 0;
+}
+
+.badge {
+  display: inline-block;
+  font-weight: 800;
+  border: 3px solid var(--rule);
+  border-radius: 999px;
+  padding: 0.35rem 1rem;
+  background: var(--bg);
+}
+
+ul.features {
+  padding-left: 1.25rem;
+}
+
+ul.features li {
+  margin: 0.35rem 0;
+}
+
+details {
+  border-bottom: 2px solid var(--washi-shade);
+  padding: 0.5rem 0;
+}
+
+summary {
+  cursor: pointer;
+  font-weight: 700;
+  padding: 0.25rem 0;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 0.75rem 0;
+}
+
+th,
+td {
+  text-align: left;
+  vertical-align: top;
+  padding: 0.4rem 0.5rem;
+  border-bottom: 1px solid var(--washi-shade);
+}
+
+footer.site {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+  border-top: 4px solid var(--rule);
+  font-size: 0.95rem;
+}
+
+footer.site ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+  padding: 0;
+  margin: 0 0 0.5rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
